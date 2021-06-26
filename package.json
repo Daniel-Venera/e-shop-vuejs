@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -21,6 +22,7 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/test-utils": "^2.0.0-0",
+    "execa": "latest",
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-0"
   }
