@@ -1,30 +1,26 @@
 <template>
-  <div class="home">
-    <h1 class="title">Home</h1>
+  <main class="main">
+    <h1 class="main__title">Products</h1>
     <div v-if='loading'>
       spinner
     </div>
     <div v-else>
-      <div>
-        filters : 
-        <button v-for='(category, index) in categories' :key='index' @click='filterCategory(category)' :class='{ active: isFiltered(category) }'>
-          {{category}}
-        </button>
-      </div>
+      <Filters @filter-category='filterCategory($event)' :filtered-categories='filteredCategories'/>
       <div v-for='category in hasFilter' :key='category'>
         <h2>{{category}}</h2>
         <product-card v-for="product in filterProducts(category)" :key="product.id" :product='product'></product-card>  
       </div>  
     </div>
-  </div>
+  </main>
 </template>
 <script>
 // @ is an alias to /src
 import ProductCard from '../components/ProductCard'
+import Filters from '../components/Filters'
 export default {
   name: 'Home',
   components: {
-    ProductCard
+    ProductCard, Filters
   },
   data(){
     return{
@@ -59,22 +55,9 @@ export default {
       } else {
         this.filteredCategories.unshift(category)
       }
-    },
-    isFiltered(category){
-      if (this.filteredCategories.includes(category)){
-        return true
-      } else {
-        return false
-      }
     }
   }
 }
 </script>
-<style scoped>
-.title{
-  color: cadetblue;
-}
-.active{
-  border: none;
-}
+<style lang='scss' scoped>
 </style>

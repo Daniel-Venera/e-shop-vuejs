@@ -14,4 +14,7 @@ export default{
   }
 }
 </script>
-<style></style>
+<style lang='scss'>
+  @import './assets/scss/global.scss';
+  @import './assets/scss/main.scss'
+</style>
