@@ -11,18 +11,10 @@
           {{category}}
         </button>
       </div>
-      <div v-if='filteredCategories.length > 0'>
-        <div v-for='category in filteredCategories' :key='category'>
-          <h2>{{category}}</h2>
-          <product-card v-for="product in filterProducts(category)" :key="product.id" :product='product'></product-card>  
-        </div>  
-      </div>
-      <div v-else>
-        <div v-for='category in categories' :key='category'>
-          <h2>{{category}}</h2>
-          <product-card v-for="product in filterProducts(category)" :key="product.id" :product='product'></product-card>  
-        </div>  
-      </div>
+      <div v-for='category in hasFilter' :key='category'>
+        <h2>{{category}}</h2>
+        <product-card v-for="product in filterProducts(category)" :key="product.id" :product='product'></product-card>  
+      </div>  
     </div>
   </div>
 </template>
@@ -48,6 +40,13 @@ export default {
     },
     categories(){
       return this.$store.getters.categories
+    },
+    hasFilter(){
+      if (this.filteredCategories.length > 0){
+        return this.filteredCategories
+      } else {
+        return this.categories
+      }
     }
   },
   methods: {

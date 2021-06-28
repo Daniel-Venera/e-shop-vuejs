@@ -1,12 +1,13 @@
 <template>
-  <div id="nav" >
-    <router-link to="/">Products</router-link> |
-    <router-link to="/cart">Cart {{$store.state.cart.length > 0 ? '(' + $store.state.cart.length + ')' : '' }}</router-link>
-  </div>
+  <Navbar />
   <router-view/>
 </template>
 <script>
+import Navbar from './components/Navbar.vue' 
 export default{
+  components: {
+    Navbar
+  },
   mounted(){
     this.$store.dispatch('getCategories')
     this.$store.dispatch('getProducts')
