@@ -1,0 +1,42 @@
+.modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    // position: relative;
+    // padding: ;
+    &__body {
+        text-align: center;
+        border-radius: 8px;
+        padding: 20px 10px;
+        background-color: white;
+        max-width: 500px;
+    }
+    &__img {
+        display: block;
+        max-width: 50%;
+        margin: 0 auto 24px auto;
+    }
+    &__info {
+        display: inline-block;
+        margin-bottom: 16px;
+    }
+    &__close {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        font-size: 36px;
+        color: white;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+}

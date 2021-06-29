@@ -1,8 +1,8 @@
 <template>
-	<div>
-		<button @click='this.$emit("decrement")' :disabled='quantity == 1 && disabled'>-</button>
-		<button @click='this.$emit("increment")'>+</button>
-		{{quantity}}
+	<div class="product__counterBtn counterBtn">
+		<button class="counterBtn__btn " @click='$emit("decrement")' :disabled='quantity == 1 && disabled'>-</button>
+		<button class="counterBtn__btn " @click='$emit("increment")'>+</button>
+		<span class="counterBtn__quantity">{{quantity}}</span>
 	</div>
 </template>
 <script>
@@ -13,5 +13,6 @@ export default {
 	}
 }
 </script>
-<style>
+<style lang='scss' scoped>
+	@import '../assets/scss/counterBtn';
 </style>

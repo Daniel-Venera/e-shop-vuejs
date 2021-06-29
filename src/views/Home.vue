@@ -1,26 +1,23 @@
 <template>
   <main class="main">
     <h1 class="main__title">Products</h1>
-    <div v-if='loading'>
-      spinner
+    <div class="loading" v-if='loading'>
+      <div></div><div></div>
     </div>
     <div v-else>
       <Filters @filter-category='filterCategory($event)' :filtered-categories='filteredCategories'/>
-      <div v-for='category in hasFilter' :key='category'>
-        <h2>{{category}}</h2>
-        <product-card v-for="product in filterProducts(category)" :key="product.id" :product='product'></product-card>  
-      </div>  
+      <Products :filtered-categories='filteredCategories' :products='products' :categories='categories'/>
     </div>
   </main>
 </template>
 <script>
 // @ is an alias to /src
-import ProductCard from '../components/ProductCard'
 import Filters from '../components/Filters'
+import Products from '../components/Products'
 export default {
   name: 'Home',
   components: {
-    ProductCard, Filters
+    Products, Filters
   },
   data(){
     return{
@@ -36,19 +33,9 @@ export default {
     },
     categories(){
       return this.$store.getters.categories
-    },
-    hasFilter(){
-      if (this.filteredCategories.length > 0){
-        return this.filteredCategories
-      } else {
-        return this.categories
-      }
     }
   },
   methods: {
-    filterProducts(category){
-      return this.products.filter(p => p.category == category)
-    },
     filterCategory(category){
       if (this.filteredCategories.includes(category)){
         this.filteredCategories = this.filteredCategories.filter(c => c !== category)  
@@ -60,4 +47,5 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
+@import '../assets/scss/loading'
 </style>

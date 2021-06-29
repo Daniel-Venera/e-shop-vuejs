@@ -1,0 +1,41 @@
+.product {
+    @media (min-width: 576px) {
+        display: flex;
+    }
+    &__imgCtn {
+        @media (min-width: 576px) {
+            flex: 0 0 40%;
+        }
+    }
+    &__img {
+        max-width: 100%;
+        // display: block;
+        margin-bottom: 24px;
+    }
+    &__infos {
+        @media (min-width: 576px) {
+            padding-left: 30px;
+        }
+    }
+    &__title {
+        margin-bottom: 8px;
+        color: $primary;
+    }
+    &__label {
+        display: inline-block;
+        text-transform: capitalize;
+        padding: 10px;
+        border-radius: 16px;
+        background-color: $grey;
+        color: white;
+        margin-bottom: 16px;
+    }
+    &__desc {
+        margin-bottom: 16px;
+    }
+    &__price {
+        font-size: 20px;
+        display: block;
+        margin-bottom: 16px;
+    }
+}

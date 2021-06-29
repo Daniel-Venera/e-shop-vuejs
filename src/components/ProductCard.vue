@@ -1,9 +1,13 @@
 <template>
-	<div class="card">
-		<img :src="product.image" alt="" class="card__img">
-		<h2>{{product.title}}</h2>
-		<router-link :to="{name: 'Product', params: {id: product.id} }">Voir l'article</router-link>
-	</div>
+	<router-link :to="{name: 'Product', params: {id: product.id} }"  class="card">
+		<div class="card__imgCtn">
+			<div class="card__img" :style="{background: 'url(' + product.image + ') center center no-repeat'}"></div>	
+		</div>
+		<!-- <img :src="product.image" alt="" class="card__img"> -->
+		<div class="card__body">
+			<h2 class="card__title">{{product.title}}</h2>
+		</div>
+	</router-link>
 </template>
 <script>
 export default {
@@ -12,13 +16,6 @@ export default {
 	}
 }
 </script>
-<style>
-.card{
-	border: 1px solid grey;
-	max-width: 50%;
-}
-.card__img{
-	width: 100%;
-	height: auto;
-}
+<style lang='scss' scoped>
+	@import '../assets/scss/card.scss';
 </style>

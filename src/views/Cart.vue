@@ -1,13 +1,24 @@
 <template>
-	<div v-if='cart.length > 0'>
-		<div v-for='cartProduct in cart' :key='cartProduct.id'>
-			{{cartProduct}}
-			<counter-button :quantity="cartProduct.quantity" @increment='increment(cartProduct)' @decrement='decrement(cartProduct)'></counter-button>
-			<button @click="this.$store.dispatch('deleteCartProduct', cartProduct)">Delete article</button>
+	<div>
+		<h1 class="main__title">Cart</h1>
+		<div v-if='cart.length > 0'>
+			<transition-group name='cart' tag="div">
+				<div v-for='cartProduct in cart' :key='cartProduct' class="cart">
+					<div class="cart__img" :style="{background: 'url(' + cartProduct.image + ') center center no-repeat'}"></div>
+					<h2 class="cart__title">
+						{{cartProduct.title}}
+					</h2>
+					<counter-button :quantity="cartProduct.quantity" @increment='increment(cartProduct)' @decrement='decrement(cartProduct)'></counter-button>
+					<font-awesome-icon class="cart__delete" icon='trash' @click="$store.dispatch('deleteCartProduct', cartProduct)">Delete article</font-awesome-icon>
+				</div>	
+			</transition-group>
 		</div>	
-	</div>
-	<div v-else>
-		no articles in cart
+		<div v-else>
+			<p class="main__desc">
+				You does not have articles in your cart yet
+			</p>
+			<router-link to='/' class="btn">See products</router-link>
+		</div>
 	</div>
 </template>
 <script>
@@ -35,5 +46,7 @@ export default {
 	}
 }
 </script>
-<style>
+<style lang='scss' scoped>
+	@import '../assets/scss/cart';
+	@import '../assets/scss/btn'
 </style>

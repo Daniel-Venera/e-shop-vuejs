@@ -1,0 +1,15 @@
+.btn {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 20px 25px;
+    font-size: 16px;
+    border: none;
+    background-color: $secondary;
+    transition: $trs;
+    color: white;
+    &:hover {
+        background-color: $primary;
+    }
+}

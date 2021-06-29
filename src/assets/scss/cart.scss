@@ -1,0 +1,27 @@
+.cart {
+    margin-bottom: 48px;
+    display: block;
+    &__img {
+        max-width: 100px;
+        height: 100px;
+        background-size: contain !important;
+        margin-bottom: 16px;
+    }
+    &__title {
+        color: $primary;
+        margin-bottom: 16px;
+    }
+    &__delete {
+        font-size: 18px;
+        color: $secondary;
+        cursor: pointer;
+    }
+}
+.cart-enter-active,
+.cart-leave-active {
+    transition: all 0.5s;
+}
+.cart-enter,
+.cart-leave-to {
+    opacity: 0;
+}

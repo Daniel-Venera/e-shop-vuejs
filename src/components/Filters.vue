@@ -18,11 +18,7 @@ export default {
 	},
 	methods: {
 		isFiltered(category){
-			if (this.filteredCategories.includes(category)){
-				return true
-			} else {
-				return false
-			}
+			return this.filteredCategories.includes(category)
     	}
 	}
 }
